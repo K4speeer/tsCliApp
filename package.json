@@ -1,6 +1,26 @@
 {
   "dependencies": {
+    "commander": "^12.0.0",
     "dotenv": "^16.4.5",
     "ethers": "^6.11.1"
-  }
+  },
+  "name": "tscliapp",
+  "description": "Typescript Command-Line Application",
+  "version": "1.0.0",
+  "main": "./dist/main.js",
+  "bin":{
+    "ether-cli": "./dist/main.js"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

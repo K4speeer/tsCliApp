@@ -1,9 +1,13 @@
+#!/usr/bin/env node
+
 import {ethers} from 'ethers';
+import { program } from 'commander';
 import { config } from 'dotenv';
 config()
 
 const apiKey = process.env.etherscanApiToken
 
+// Creating Contract instance with desired functionality (USDT balance getter)
 const provider = new ethers.EtherscanProvider("homestead", apiKey);
 const usdtContractAddress = '0xdac17f958d2ee523a2206206994597c13d831ec7'
 const usdtAbi = [
@@ -50,7 +54,26 @@ async function getLastBlockNum(){
     const blocknum = await provider.getBlockNumber();
     // console.log(`BlockNum From Default Provider : ${defBlockNum}`)
     console.log(`Block Number From Etherscan Provider : ${blocknum}`)
-
 }
 
 // getLastBlockNum();
+
+program
+    .version('0.0.1')
+    .description('A CLI tool to get some info from Etherium Blockchain')
+
+program
+    .command('get-balance <address>')
+    .description('Returns an USDT balance of given address')
+    .action(async (address) => {
+        await getBalanceOf(address);
+    });
+
+program
+    .command('get-last-block')
+    .description('Returns the last mined block number')
+    .action(async() => {
+        await getLastBlockNum();
+    });
+
+program.parse(process.argv);
