@@ -37,6 +37,7 @@ const usdtAbi = [
     }
 ];
 const usdtContract = new ethers_1.ethers.Contract(usdtContractAddress, usdtAbi, provider);
+// USDT Balance function
 function getBalanceOf(address) {
     return __awaiter(this, void 0, void 0, function* () {
         const balance = yield usdtContract.balanceOf(address);
@@ -45,5 +46,17 @@ function getBalanceOf(address) {
         console.log(`Balance: ${balanceInUsdt} USDT`);
     });
 }
-getBalanceOf("0xdac17f958d2ee523a2206206994597c13d831ec7");
+// getBalanceOf("0xdac17f958d2ee523a2206206994597c13d831ec7")
+// const defaultProvider = ethers.getDefaultProvider();
+// Both Default provider and Etherscan provider connects to same node
+// Last mined block number function
+function getLastBlockNum() {
+    return __awaiter(this, void 0, void 0, function* () {
+        // const defBlockNum = await defaultProvider.getBlockNumber();
+        const blocknum = yield provider.getBlockNumber();
+        // console.log(`BlockNum From Default Provider : ${defBlockNum}`)
+        console.log(`Block Number From Etherscan Provider : ${blocknum}`);
+    });
+}
+// getLastBlockNum();
 //# sourceMappingURL=main.js.map
