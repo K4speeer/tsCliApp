@@ -9,7 +9,7 @@
   "version": "1.0.0",
   "main": "./dist/main.js",
   "bin": {
-    "ether-cli": "./dist/main.js"
+    "tsliapp": "./dist/main.js"
   },
   "directories": {
     "test": "tests"
@@ -26,7 +26,6 @@
   },
   "author": "Idris Taha",
   "license": "ISC",
-
   "keywords": [
     "etherscan-api",
     "blockchain",
