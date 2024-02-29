@@ -4,7 +4,7 @@
     "dotenv": "^16.4.5",
     "ethers": "^6.11.1"
   },
-  "name": "tsliapp",
+  "name": "tscliapp",
   "description": "Typescript Command-Line Application",
   "version": "1.0.0",
   "main": "./dist/main.js",
