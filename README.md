@@ -20,8 +20,11 @@ The application is *literally* **simple**. It have only two functions *so far*:
 - ## get-balance [address] Function 
 
     This function returns the USDT Balance of a given address in a readable format.
+    
     **Note:** The address should be given like : "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    
     **example:** 
+    
     ```tsliapp get-balance 0xdac17f958d2ee523a2206206994597c13d831ec7 ```
 
     **Output**
@@ -30,7 +33,9 @@ The application is *literally* **simple**. It have only two functions *so far*:
 - ## get-last-block function
 
     Returns the number of the last block mined in the Etherium mainnet.
+    
     **example:**
+    
     ```tsliapp get-last-block```
 
     **Output**
