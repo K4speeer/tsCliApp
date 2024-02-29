@@ -3,9 +3,7 @@ name: "Publish to NPM"
 on:
   push:
     branches:
-      - main  # Assuming your main branch is named 'main'
-    tags:
-      - 'v*'  # This will trigger the workflow for any tag starting with 'v'
+      - master
 
 jobs:
   build:
