@@ -16,14 +16,14 @@ program
     .command('get-balance <address>')
     .description('Returns an USDT balance of given address')
     .action(async (address) => {
-        await app.getBalanceOf(address);
+        console.log(`Balance: ${await app.getLastBlockNum()} USDT`);
     });
 
 program
     .command('get-last-block')
     .description('Returns the last mined block number')
     .action(async() => {
-        await app.getLastBlockNum();
+       console.log(`Last Block Mined Using Etherscan Provider: ${await app.getLastBlockNum()}`);
     });
 
 program.parse(process.argv);

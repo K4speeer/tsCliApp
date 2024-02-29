@@ -39,16 +39,17 @@ export class EtherApp{
     async  getBalanceOf(address:string) {
     const balance = await this.usdtContract.balanceOf(address)
     // Convert from wei to usdt
-    const balanceInUsdt = ethers.formatUnits(balance, 6);
-    console.log(`Balance: ${balanceInUsdt} USDT`)
+    return ethers.formatUnits(balance, 6);
+    
     }
 
     // Last mined block number function
     async getLastBlockNum(){
     // const defBlockNum = await defaultProvider.getBlockNumber();
-    const blocknum = await this.provider.getBlockNumber();
+    // const blocknum = await this.provider.getBlockNumber();
     // console.log(`BlockNum Using Default Provider : ${defBlockNum}`)
-    console.log(`Last Block Mined Using Etherscan Provider : ${blocknum}`)
+    // console.log(`Last Block Mined Using Etherscan Provider : ${blocknum}`)
+    return await this.provider.getBlockNumber();
 }
 
 }
