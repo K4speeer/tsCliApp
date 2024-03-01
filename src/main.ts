@@ -23,7 +23,7 @@ program
     .command('get-last-block')
     .description('Returns the last mined block number')
     .action(async() => {
-       console.log(`Last Block Mined Using Etherscan Provider: ${await app.getLastBlockNum()}`);
+       console.log(`Last Block Mined: ${await app.getLastBlockNum()}`);
     });
 
 program.parse(process.argv);

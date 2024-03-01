@@ -29,7 +29,7 @@ commander_1.program
     .command('get-last-block')
     .description('Returns the last mined block number')
     .action(() => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(`Last Block Mined Using Etherscan Provider: ${yield app.getLastBlockNum()}`);
+    console.log(`Last Block Mined: ${yield app.getLastBlockNum()}`);
 }));
 commander_1.program.parse(process.argv);
 //# sourceMappingURL=main.js.map

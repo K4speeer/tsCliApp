@@ -9,7 +9,7 @@
   "version": "1.0.0",
   "main": "./dist/main.js",
   "bin": {
-    "tsliapp": "./dist/main.js"
+    "tsliapp": "./dist/src/main.js"
   },
   "directories": {
     "test": "tests"
