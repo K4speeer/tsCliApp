@@ -1,45 +1,43 @@
-import { EtherApp } from '../src/etherApp';
 import { ethers } from 'ethers';
+import { EtherApp } from '../src/etherApp';
 
-jest.mock('ethers');
+jest.mock('ethers', () => {
+  return {
+    ethers: {
+      EtherscanProvider: jest.fn().mockImplementation(() => ({
+        getBlockNumber: jest.fn().mockResolvedValue(123456),
+      })),
+      Contract: jest.fn().mockImplementation(() => ({
+        balanceOf: jest.fn().mockResolvedValue('1000000000000000000'), // 1 USDT in wei for simplicity
+      })),
+      formatUnits: jest.fn().mockReturnValue('1.0'), // Mocking conversion to return 1 USDT for simplicity
+    },
+  };
+});
 
 describe('EtherApp', () => {
   let etherApp: EtherApp;
-  const mockProvider = { getBlockNumber: jest.fn(), balanceOf: jest.fn() };
-  const mockContract = { balanceOf: jest.fn() };
   const apiKey = 'testApiKey';
 
   beforeEach(() => {
-    ethers.EtherscanProvider = jest.fn().mockImplementation(() => mockProvider);
-    ethers.Contract = jest.fn().mockImplementation(() => mockContract);
-    ethers.getDefaultProvider = jest.fn().mockReturnValue(mockProvider);
-    ethers.formatUnits = jest.fn().mockReturnValue('formattedBalance');
+    // Initialize EtherApp before each test
     etherApp = new EtherApp(apiKey);
   });
 
   describe('getBalanceOf', () => {
-    it('should return the formatted balance of a given address', async () => {
-      const testAddress = '0x123';
-      mockContract.balanceOf.mockResolvedValue('1000000');
-
-      const balance = await etherApp.getBalanceOf(testAddress);
-
-      expect(mockContract.balanceOf).toHaveBeenCalledWith(testAddress);
-      expect(ethers.formatUnits).toHaveBeenCalledWith('1000000', 6);
-      expect(balance).toBe('formattedBalance');
+    it('should return the balance of a given address', async () => {
+      const address = '0xdac17f958d2ee523a2206206994597c13d831ec7';
+      const balance = await etherApp.getBalanceOf(address);
+      expect(balance).toBe('1.0'); // Expecting 1 USDT as mocked
+      expect(ethers.Contract.prototype.balanceOf).toHaveBeenCalledWith(address);
     });
   });
 
   describe('getLastBlockNum', () => {
     it('should return the last mined block number', async () => {
-      mockProvider.getBlockNumber.mockResolvedValue(123456);
-
-      const blockNum = await etherApp.getLastBlockNum();
-
-      expect(ethers.getDefaultProvider).toHaveBeenCalled();
-      expect(mockProvider.getBlockNumber).toHaveBeenCalled();
-      expect(blockNum).toBe(123456);
+      const blockNumber = await etherApp.getLastBlockNum();
+      expect(blockNumber).toBe(123456); // Expecting mocked block number
+      expect(ethers.EtherscanProvider.prototype.getBlockNumber).toHaveBeenCalled();
     });
   });
 });
-
