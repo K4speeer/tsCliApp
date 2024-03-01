@@ -7,7 +7,7 @@
   "name": "ether-cli",
   "description": "Typescript Command-Line Application",
   "version": "0.0.1",
-  "main": "./dist/main.js",
+  "main": "./dist/src/main.js",
   "bin": {
     "ether-cli": "./dist/src/main.js"
   },
