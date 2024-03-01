@@ -16,7 +16,7 @@ program
     .command('get-balance <address>')
     .description('Returns an USDT balance of given address')
     .action(async (address) => {
-        console.log(`Balance: ${await app.getLastBlockNum()} USDT`);
+        console.log(`Balance: ${await app.getBalanceOf(address)} USDT`);
     });
 
 program

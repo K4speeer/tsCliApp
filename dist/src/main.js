@@ -23,7 +23,7 @@ commander_1.program
     .command('get-balance <address>')
     .description('Returns an USDT balance of given address')
     .action((address) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(`Balance: ${yield app.getLastBlockNum()} USDT`);
+    console.log(`Balance: ${yield app.getBalanceOf(address)} USDT`);
 }));
 commander_1.program
     .command('get-last-block')

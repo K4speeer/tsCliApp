@@ -45,11 +45,10 @@ export class EtherApp{
 
     // Last mined block number function
     async getLastBlockNum(){
-    // const defBlockNum = await defaultProvider.getBlockNumber();
     // const blocknum = await this.provider.getBlockNumber();
     // console.log(`BlockNum Using Default Provider : ${defBlockNum}`)
     // console.log(`Last Block Mined Using Etherscan Provider : ${blocknum}`)
-    return await this.provider.getBlockNumber();
+    return await ethers.getDefaultProvider().getBlockNumber();
 }
 
 }
