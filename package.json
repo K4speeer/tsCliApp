@@ -2,11 +2,12 @@
   "dependencies": {
     "commander": "^12.0.0",
     "dotenv": "^16.4.5",
-    "ethers": "^6.11.1"
+    "ethers": "^6.11.1",
+    "nodejs": "^0.0.0"
   },
   "name": "ethers-cli",
   "description": "Typescript Command-Line Application",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/src/main.js",
   "bin": {
     "ethers-cli": "dist/src/main.js"
