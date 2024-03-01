@@ -4,12 +4,12 @@
     "dotenv": "^16.4.5",
     "ethers": "^6.11.1"
   },
-  "name": "ethli",
+  "name": "tsliapp",
   "description": "Typescript Command-Line Application",
   "version": "0.0.1",
   "main": "./dist/src/main.js",
   "bin": {
-    "ethli": "dist/src/main.js"
+    "tsliapp": "dist/src/main.js"
   },
   "directories": {
     "test": "tests"
