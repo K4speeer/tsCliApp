@@ -9,7 +9,7 @@
   "version": "0.0.1",
   "main": "./dist/src/main.js",
   "bin": {
-    "ether-cli": "./dist/src/main.js"
+    "ether-cli": "dist/src/main.js"
   },
   "directories": {
     "test": "tests"
@@ -32,6 +32,9 @@
     "cli",
     "npmtool"
   ],
-  "repository": "https://github.com/K4speeer/tsCliApp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K4speeer/tsCliApp.git"
+  },
   "homepage": "https://github.com/K4speeer/tsCliApp#readme"
 }

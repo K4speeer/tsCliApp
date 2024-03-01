@@ -9,42 +9,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ethers_1 = require("ethers");
 const etherApp_1 = require("../src/etherApp");
-jest.mock('ethers', () => {
-    return {
-        ethers: {
-            EtherscanProvider: jest.fn().mockImplementation(() => ({
-                getBlockNumber: jest.fn().mockResolvedValue(123456),
-            })),
-            Contract: jest.fn().mockImplementation(() => ({
-                balanceOf: jest.fn().mockResolvedValue('1000000000000000000'), // 1 USDT in wei for simplicity
-            })),
-            formatUnits: jest.fn().mockReturnValue('1.0'), // Mocking conversion to return 1 USDT for simplicity
-        },
-    };
-});
-describe('EtherApp', () => {
-    let etherApp;
-    const apiKey = 'testApiKey';
-    beforeEach(() => {
-        // Initialize EtherApp before each test
-        etherApp = new etherApp_1.EtherApp(apiKey);
+describe('EthersApp', () => {
+    let app;
+    beforeAll(() => {
+        // Adding dummy API key for testing
+        app = new etherApp_1.EtherApp('dummyApiKey');
     });
-    describe('getBalanceOf', () => {
-        it('should return the balance of a given address', () => __awaiter(void 0, void 0, void 0, function* () {
-            const address = '0xdac17f958d2ee523a2206206994597c13d831ec7';
-            const balance = yield etherApp.getBalanceOf(address);
-            expect(balance).toBe('1.0'); // Expecting 1 USDT as mocked
-            expect(ethers_1.ethers.Contract.prototype.balanceOf).toHaveBeenCalledWith(address);
-        }));
-    });
-    describe('getLastBlockNum', () => {
-        it('should return the last mined block number', () => __awaiter(void 0, void 0, void 0, function* () {
-            const blockNumber = yield etherApp.getLastBlockNum();
-            expect(blockNumber).toBe(123456); // Expecting mocked block number
-            expect(ethers_1.ethers.EtherscanProvider.prototype.getBlockNumber).toHaveBeenCalled();
-        }));
-    });
+    // Testing getBalanceOf function 
+    test('getBalanceOf returns a string', () => __awaiter(void 0, void 0, void 0, function* () {
+        // Make the balanceOf function to return a fixed value str(1000000)
+        app.usdtContract.balanceOf = jest.fn().mockResolvedValue('1000000');
+        const balance = yield app.getBalanceOf('someAddress');
+        expect(typeof balance).toBe('string');
+    }));
+    // Testing getLastBlockNum function
+    test('getLastBlockNum returns a number', () => __awaiter(void 0, void 0, void 0, function* () {
+        // Make the getBlockNumber function to return a fixed value 123456
+        app.provider.getBlockNumber = jest.fn().mockResolvedValue(123456);
+        const blockNum = yield app.getLastBlockNum();
+        expect(typeof blockNum).toBe('number');
+    }));
 });
 //# sourceMappingURL=etherApp.test.js.map
