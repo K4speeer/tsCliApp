@@ -4,7 +4,18 @@ Designed to interact with the Ethereum blockchain. It allows users to perform va
 
 
 # Installation
-``` $ npm install tsliapp```
+``` $ git clone https://github.com/K4speeer/tsCliApp```
+
+Open the repository in any editor, and replace the placeholder in the **.env** file with your own Etherscan API Token.
+
+Build the package using 
+
+``` $ npm run build ```
+
+install the package globally to use it from the terminal (command-line):
+
+``` $ nppm install -g```
+
 
 
 ## Dependencies
@@ -28,7 +39,7 @@ The application is *literally* **simple**. It have only two functions *so far*:
     ```tsliapp get-balance 0xdac17f958d2ee523a2206206994597c13d831ec7 ```
 
     **Output**
-    ```Balance: 19332440 USDT```
+    ```Balance: 714056.512482 USDT```
 
 - ## get-last-block function
 
