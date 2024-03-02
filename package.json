@@ -2,12 +2,11 @@
   "dependencies": {
     "commander": "^12.0.0",
     "dotenv": "^16.4.5",
-    "ethers": "^6.11.1",
-    "nodejs": "^0.0.0"
+    "ethers": "^6.11.1"
   },
   "name": "ethers-cli",
   "description": "Typescript Command-Line Application",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "main": "./dist/src/main.js",
   "bin": {
     "ethers-cli": "dist/src/main.js"
@@ -37,5 +36,8 @@
     "type": "git",
     "url": "git+https://github.com/K4speeer/tsCliApp.git"
   },
-  "homepage": "https://github.com/K4speeer/tsCliApp#readme"
+  "homepage": "https://github.com/K4speeer/tsCliApp#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
