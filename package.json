@@ -6,7 +6,7 @@
   },
   "name": "ethers-cli",
   "description": "Typescript Command-Line Application",
-  "version": "0.0.6",
+  "version": "0.7.7",
   "main": "./dist/src/main.js",
   "bin": {
     "ethers-cli": "dist/src/main.js"
