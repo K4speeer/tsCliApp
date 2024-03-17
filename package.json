@@ -4,12 +4,12 @@
     "dotenv": "^16.4.5",
     "ethers": "^6.11.1"
   },
-  "name": "ethers-cli",
+  "name": "etheli",
   "description": "Typescript Command-Line Application",
   "version": "0.7.7",
   "main": "./dist/src/main.js",
   "bin": {
-    "ethers-cli": "dist/src/main.js"
+    "etheli": "dist/src/main.js"
   },
   "directories": {
     "test": "tests"
