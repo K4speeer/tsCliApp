@@ -1,4 +1,5 @@
-import {ethers} from 'ethers'
+import {ethers} from 'ethers';
+import { checkApiKeyExists } from './apiSetup';
 
 export class EtherApp{
     // Both Default provider and Etherscan provider connects to same node
@@ -37,18 +38,26 @@ export class EtherApp{
 
     // USDT Balance function
     async  getBalanceOf(address:string) {
-    const balance = await this.usdtContract.balanceOf(address)
-    // Convert from wei to usdt
-    return ethers.formatUnits(balance, 6);
+        if (!checkApiKeyExists()) {
+            console.error("API key is missing. Please set the API key using 'etheli set-api-key' and try again.");
+            return;
+        }
+        const balance = await this.usdtContract.balanceOf(address)
+        // Convert from wei to usdt
+        return ethers.formatUnits(balance, 6);
     
     }
 
     // Last mined block number function
     async getLastBlockNum(){
-    // const blocknum = await this.provider.getBlockNumber();
-    // console.log(`BlockNum Using Default Provider : ${defBlockNum}`)
-    // console.log(`Last Block Mined Using Etherscan Provider : ${blocknum}`)
-    return await this.provider.getBlockNumber();
+        if (!checkApiKeyExists()) {
+            console.error("API key is missing. Please set the API key using 'etheli set-api-key' and try again.");
+            return;
+        }
+        // const blocknum = await this.provider.getBlockNumber();
+        // console.log(`BlockNum Using Default Provider : ${defBlockNum}`)
+        // console.log(`Last Block Mined Using Etherscan Provider : ${blocknum}`)
+        return await this.provider.getBlockNumber();
 }
 
 }

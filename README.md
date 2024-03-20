@@ -1,32 +1,22 @@
-# TypeScript Comman-Line Application
+# ETHELI - TypeScript Comman-Line Application **v0.7.8**
 
 Designed to interact with the Ethereum blockchain. It allows users to perform various operations such as getting USDT balance of an account using it's address and checking the last block mined in the Etherium Mainnet.
 
 
 # Installation
-``` $ git clone https://github.com/K4speeer/tsCliApp```
+Install the packege using NPM - Node Package Manager
 
-Open the repository in any editor, and replace the placeholder in the **.env** file with your own Etherscan API Token.
-
-Build the package using 
-
-``` $ npm run build ```
-
-install the package globally to use it from the terminal (command-line):
-
-``` $ nppm install -g```
+``` $ npm install etheli -g```
 
 
-
-## Dependencies
-
-- ethers.js
-- commander.js
-- dotenv
 
 # Usage
 
-The application is *literally* **simple**. It have only two functions *so far*:
+Add you'r **ETHERSCAN_API_KEY** using the following command to be able to fetch data from Ethereum Blockchain.
+
+```etheli set-api-key```
+
+# Application Functions:
 
 - ## get-balance [address] Function 
 
@@ -36,7 +26,7 @@ The application is *literally* **simple**. It have only two functions *so far*:
     
     **example:** 
     
-    ```tsliapp get-balance 0xdac17f958d2ee523a2206206994597c13d831ec7 ```
+    ```etheli get-balance 0xdac17f958d2ee523a2206206994597c13d831ec7 ```
 
     **Output**
     ```Balance: 714056.512482 USDT```
@@ -47,7 +37,7 @@ The application is *literally* **simple**. It have only two functions *so far*:
     
     **example:**
     
-    ```tsliapp get-last-block```
+    ```etheli get-last-block```
 
     **Output**
     ```Last Block Mined Using Etherscan Provider: 19332460```
