@@ -38,10 +38,6 @@ export class EtherApp{
 
     // USDT Balance function
     async  getBalanceOf(address:string) {
-        if (!checkApiKeyExists()) {
-            console.error("API key is missing. Please set the API key using 'etheli set-api-key' and try again.");
-            return;
-        }
         const balance = await this.usdtContract.balanceOf(address)
         // Convert from wei to usdt
         return ethers.formatUnits(balance, 6);
@@ -50,14 +46,11 @@ export class EtherApp{
 
     // Last mined block number function
     async getLastBlockNum(){
-        if (!checkApiKeyExists()) {
-            console.error("API key is missing. Please set the API key using 'etheli set-api-key' and try again.");
-            return;
-        }
         // const blocknum = await this.provider.getBlockNumber();
         // console.log(`BlockNum Using Default Provider : ${defBlockNum}`)
         // console.log(`Last Block Mined Using Etherscan Provider : ${blocknum}`)
-        return await this.provider.getBlockNumber();
+        const blockNum = await this.provider.getBlockNumber();
+        return blockNum;
 }
 
 }
