@@ -6,7 +6,7 @@
   },
   "name": "etheli",
   "description": "Typescript Command-Line Application",
-  "version": "0.7.8",
+  "version": "0.7.9",
   "main": "./dist/src/main.js",
   "bin": {
     "etheli": "dist/src/main.js"

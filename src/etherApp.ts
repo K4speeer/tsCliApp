@@ -1,5 +1,4 @@
 import {ethers} from 'ethers';
-import { checkApiKeyExists } from './apiSetup';
 
 export class EtherApp{
     // Both Default provider and Etherscan provider connects to same node
