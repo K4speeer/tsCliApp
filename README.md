@@ -1,4 +1,4 @@
-# ETHELI - TypeScript Comman-Line Application **v0.7.8**
+# ETHELI - TypeScript Comman-Line Application **v0.8.0**
 
 Designed to interact with the Ethereum blockchain. It allows users to perform various operations such as getting USDT balance of an account using it's address and checking the last block mined in the Etherium Mainnet.
 
@@ -9,16 +9,13 @@ Install the packege using NPM - Node Package Manager
 ``` $ npm install etheli -g```
 
 
+# Dependencies: 
+    nodejs >= 18.0.0
 
-# Usage
 
-Add you'r **ETHERSCAN_API_KEY** using the following command to be able to fetch data from Ethereum Blockchain.
+# Application Commands:
 
-```etheli set-api-key```
-
-# Application Functions:
-
-- ## get-balance [address] Function 
+- ## get-balance [address]  
 
     This function returns the USDT Balance of a given address in a readable format.
     
@@ -31,7 +28,7 @@ Add you'r **ETHERSCAN_API_KEY** using the following command to be able to fetch 
     **Output**
     ```Balance: 714056.512482 USDT```
 
-- ## get-last-block function
+- ## get-last-block 
 
     Returns the number of the last block mined in the Etherium mainnet.
     

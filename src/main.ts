@@ -10,7 +10,7 @@ const apiKey = process.env.ETHERSCAN_API_TOKEN || "";
 const app = new EtherApp(apiKey);
 
 program
-    .version('0.7.9')
+    .version('0.8.0')
     .description('A CLI tool to get some info from Etherium Blockchain')
 
 // // Set the api at the users endpoint to be able of making requests to the chain 
